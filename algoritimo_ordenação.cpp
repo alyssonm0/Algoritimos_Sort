@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <chrono>
+#include <iomanip>
 using namespace std;
 using namespace chrono;
 
@@ -74,8 +75,9 @@ int main(int argc, char** argv) {
     for (int num : v_insertion) {
         saida_insertion << num << endl;
     }
-    auto duration_insertion = duration_cast<microseconds>(stop_insertion - start_insertion);
-    cout << "Tempo de execução (Insertion Sort): " << duration_insertion.count() << " microsegundos" << endl;
+    double duration_insertion = duration_cast<duration<double>>(stop_insertion - start_insertion).count();
+    cout << fixed << setprecision(5); // Formata a saída para 5 casas decimais
+    cout << "Tempo de execução (Insertion Sort): " << duration_insertion << " segundos" << endl;
     saida_insertion.close();
 
     // Ordenando por: Selection Sort
@@ -93,14 +95,14 @@ int main(int argc, char** argv) {
     for (int num : v_selection) {
         saida_selection << num << endl;
     }
-    auto duration_selection = duration_cast<microseconds>(stop_selection - start_selection);
-    cout << "Tempo de execução (Selection Sort): " << duration_selection.count() << " microsegundos" << endl;
+    double duration_selection = duration_cast<duration<double>>(stop_selection - start_selection).count();
+    cout << "Tempo de execução (Selection Sort): " << duration_selection << " segundos" << endl;
     saida_selection.close();
 
     if (duration_insertion < duration_selection) {
-        cout << "Insertion Sort foi mais rápido por " << (duration_selection - duration_insertion).count() << " microsegundos." << endl;
+        cout << "Insertion Sort foi mais rápido por " << (duration_selection - duration_insertion) << " segundos." << endl;
     } else if (duration_selection < duration_insertion) {
-        cout << "Selection Sort foi mais rápido por " << (duration_insertion - duration_selection).count() << " microsegundos." << endl;
+        cout << "Selection Sort foi mais rápido por " << (duration_insertion - duration_selection) << " segundos." << endl;
     } else {
         cout << "Ambos os métodos tiveram o mesmo tempo de execução." << endl;
     }
