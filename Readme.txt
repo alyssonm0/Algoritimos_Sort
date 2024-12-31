@@ -1,14 +1,14 @@
 # Informações Sobre o Funcionamento do Código
 
-Este código implementa dois algoritmos de ordenação, **Insertion Sort** e **Selection Sort**, que ordenam os elementos de um arquivo de entrada especificado no código. O código mede o tempo de execução de cada método, salva os resultados ordenados em arquivos separados e exibe no terminal qual dos dois foi mais rápido.
+Este código implementa dois algoritmos de ordenação, **Insertion Sort** e **Selection Sort**, que ordenam os elementos de um arquivo de entrada especificado na linha de comando. O código mede o tempo de execução de cada método, salva os resultados ordenados em arquivos separados e exibe no terminal qual dos dois foi mais rápido.
 
 ### **Funcionamento do Código**
 1. O arquivo de entrada é lido e convertido em um vetor de inteiros.
 2. O vetor é ordenado usando os dois algoritmos de ordenação.
 3. Os tempos de execução de cada algoritmo são calculados e exibidos no terminal.
 4. O resultado de cada ordenação é salvo em arquivos separados:
-   - **insertion_sorted.txt** para o resultado do Insertion Sort.
-   - **selection_sorted.txt** para o resultado do Selection Sort.
+   - **saida_insertion.txt** para o resultado do Insertion Sort.
+   - **saida_selection.txt** para o resultado do Selection Sort.
 5. O programa compara os tempos de execução e informa qual dos dois algoritmos foi mais rápido.
 
 ---
@@ -29,16 +29,20 @@ Este código implementa dois algoritmos de ordenação, **Insertion Sort** e **S
 
 1. Após compilar, execute o programa com o comando:
    ```bash
-   ./ordenacao
+   ./ordenacao <arquivo_de_entrada>
    ```
-2. O programa irá processar o arquivo especificado no código, que é definido na função `main()` (exemplo: `/home/alysson/Documents/Caderias/Estrutura de dados/Algoritomos_de_ordenação/Insertion_Sort/instancias-num/num.1000.1.in`).
-3. Os arquivos ordenados serão gerados no mesmo diretório do programa com os nomes:
-   - `insertion_sorted.txt`
-   - `selection_sorted.txt`
+   Substitua `<arquivo_de_entrada>` pelo caminho para o arquivo que deseja ordenar. Por exemplo:
+   ```bash
+   ./ordenacao instancias-num/num.1000.1.in
+   ```
+
+2. Os arquivos ordenados serão gerados no mesmo diretório do programa com os nomes:
+   - `saida_insertion.txt`
+   - `saida_selection.txt`
 
 ---
 
 ### **Observação**
-- Caso deseje testar o programa com outro arquivo, basta alterar o nome do arquivo de entrada diretamente no código, na função `read_file()`.
+- Caso deseje testar o programa com outro arquivo, basta especificar o caminho do arquivo de entrada ao executar o programa.
 - Os demais arquivos de teste estão localizados na pasta `instancias-num`. Certifique-se de apontar corretamente o caminho para o arquivo desejado.
 

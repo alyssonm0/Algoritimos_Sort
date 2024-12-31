@@ -50,8 +50,14 @@ void selection_sort(vector<int> &v) {
     }
 }
 
-int main() {
-    vector<int> v = read_file("instancias-num/num.10000.1.in");
+int main(int argc, char** argv) {
+    if (argc < 2) {
+        cerr << "Uso: " << argv[0] << " <arquivo_de_entrada>" << endl;
+        return 1;
+    }
+
+    string input_file = argv[1];
+    vector<int> v = read_file(input_file);
 
     // Ordenação por: Insertion Sort
     vector<int> v_insertion = v;
